@@ -1,0 +1,263 @@
+.hero {
+  position: relative;
+  overflow: hidden;
+  padding: calc(var(--nav-height) + 2.5rem) 0 4.5rem;
+  background:
+    radial-gradient(circle at 100% 0%, var(--pink-light) 0 22%, transparent 22.3%), var(--pink);
+}
+
+.sprinkles span {
+  position: absolute;
+  width: 1.4rem;
+  height: 0.45rem;
+  border: 2px solid var(--ink);
+  border-radius: 999px;
+  transform: rotate(var(--rot));
+  animation: bob 6s ease-in-out infinite;
+}
+
+/* Só no desktop: no mobile o texto ocupa a largura toda e os granulados atrapalham a leitura. */
+.sprinkles {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  display: none;
+}
+
+@media (min-width: 60rem) {
+  .sprinkles {
+    display: block;
+  }
+}
+
+.layout {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+.copy {
+  display: grid;
+  gap: 1.25rem;
+  justify-items: start;
+}
+
+/* Parte do <h1> (palavra-chave + local para SEO), mas com cara de sobretítulo. */
+.eyebrow {
+  display: block;
+  max-width: 34rem;
+  margin-bottom: 1.25rem;
+  font-family: var(--font-body);
+  font-variation-settings: normal;
+  font-weight: 700;
+  font-size: var(--fs-sm);
+  line-height: 1.4;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.title {
+  font-size: var(--fs-hero);
+  font-weight: 900;
+  line-height: 0.92;
+  letter-spacing: -0.035em;
+}
+
+.line {
+  display: block;
+  animation: slide-in 0.9s var(--ease-out) both;
+}
+
+.accent {
+  position: relative;
+  width: fit-content;
+  isolation: isolate;
+  font-style: italic;
+  animation-delay: 0.12s;
+}
+
+.swoosh {
+  position: absolute;
+  left: 2%;
+  bottom: -0.12em;
+  width: 96%;
+  height: 0.28em;
+  overflow: visible;
+  z-index: -1;
+}
+
+.swoosh path {
+  fill: none;
+  stroke: var(--mango);
+  stroke-width: 12;
+  stroke-linecap: round;
+  stroke-dasharray: 320;
+  stroke-dashoffset: 320;
+  animation: draw 0.9s var(--ease-out) 0.6s forwards;
+}
+
+.subtitle {
+  max-width: 34rem;
+  font-size: var(--fs-lg);
+}
+
+.ctas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.9rem;
+  margin-top: 0.5rem;
+}
+
+.art {
+  position: relative;
+  width: min(78%, 22rem);
+  margin-inline: auto;
+}
+
+.blob {
+  position: absolute;
+  inset: 12% -6% 4%;
+  background: var(--cream);
+  border: var(--border);
+  border-radius: 46% 54% 42% 58% / 52% 44% 56% 48%;
+  box-shadow: var(--shadow-pop-lg);
+}
+
+.ring {
+  position: absolute;
+  top: -2%;
+  right: -10%;
+  width: 34%;
+  z-index: 2;
+  animation: spin 18s linear infinite;
+}
+
+.ring text {
+  font-family: var(--font-body);
+  font-size: 21px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  fill: var(--ink);
+}
+
+.parallax {
+  position: relative;
+  width: 78%;
+  margin-inline: auto;
+}
+
+.float {
+  animation: float 5s ease-in-out infinite;
+}
+
+.stickers {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.stickers li {
+  position: absolute;
+  z-index: 3;
+  padding: 0.35rem 0.8rem;
+  border: var(--border);
+  border-radius: 999px;
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  white-space: nowrap;
+  box-shadow: 3px 3px 0 var(--ink);
+  animation: bob 5s ease-in-out infinite;
+}
+
+.stickers li:nth-child(1) {
+  top: 30%;
+  left: -6%;
+  background: var(--mango);
+  --rot: -8deg;
+}
+
+.stickers li:nth-child(2) {
+  top: 58%;
+  right: -6%;
+  background: var(--pistachio);
+  --rot: 6deg;
+  animation-delay: -1.5s;
+}
+
+.stickers li:nth-child(3) {
+  bottom: 8%;
+  left: 0;
+  background: var(--lilac);
+  --rot: -4deg;
+  animation-delay: -3s;
+}
+
+@supports (animation-timeline: scroll()) {
+  .parallax {
+    animation: parallax linear both;
+    animation-timeline: scroll(root);
+    animation-range: 0 100vh;
+  }
+}
+
+@media (min-width: 60rem) {
+  .hero {
+    min-height: min(100svh, 62rem);
+    display: grid;
+    align-items: center;
+    padding-bottom: 6rem;
+  }
+
+  .layout {
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 3rem;
+  }
+
+  .art {
+    width: 100%;
+    max-width: 27rem;
+  }
+}
+
+@keyframes slide-in {
+  from {
+    transform: translateY(0.4em) rotate(-2deg);
+  }
+}
+
+@keyframes draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes float {
+  50% {
+    transform: translateY(-14px) rotate(1.5deg);
+  }
+}
+
+@keyframes bob {
+  0%,
+  100% {
+    transform: rotate(var(--rot, 0deg)) translateY(0);
+  }
+  50% {
+    transform: rotate(var(--rot, 0deg)) translateY(-10px);
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes parallax {
+  to {
+    transform: translateY(18%) rotate(-4deg);
+  }
+}

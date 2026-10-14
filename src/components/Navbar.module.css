@@ -1,0 +1,178 @@
+.header {
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 50;
+  padding: 0.6rem var(--gutter);
+  transition: padding 0.3s var(--ease-out);
+}
+
+.bar {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  max-width: var(--max-width);
+  min-height: 3.6rem;
+  margin-inline: auto;
+  padding: 0.35rem 0.5rem 0.35rem 1rem;
+  border: 2.5px solid transparent;
+  border-radius: 999px;
+  transition:
+    background-color 0.3s,
+    border-color 0.3s,
+    box-shadow 0.3s;
+}
+
+.scrolled .bar {
+  background: rgb(255 246 233 / 0.92);
+  border-color: var(--ink);
+  box-shadow: var(--shadow-pop);
+  backdrop-filter: blur(10px);
+}
+
+/* Sem backdrop-filter aqui: ele viraria o "containing block" do menu fixo. */
+.menuOpen .bar {
+  background: none;
+  border-color: transparent;
+}
+
+.brand {
+  position: relative;
+  z-index: 2;
+  margin-right: auto;
+  border-radius: 999px;
+  text-decoration: none;
+}
+
+.brand:hover svg {
+  transform: rotate(-12deg) scale(1.08);
+}
+
+.nav {
+  display: contents;
+}
+
+.links {
+  display: none;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.links[data-open='true'] {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: calc(var(--nav-height) + 1rem) var(--gutter) 2rem;
+  background: var(--pink);
+  background-image:
+    radial-gradient(circle at 85% 15%, var(--mango) 0 12%, transparent 12.5%),
+    radial-gradient(circle at 10% 90%, var(--pistachio) 0 18%, transparent 18.5%);
+  animation: sheet 0.45s var(--ease-out) both;
+}
+
+.links[data-open='true'] li {
+  animation: rise 0.5s var(--ease-bounce) both;
+  animation-delay: calc(80ms + var(--i) * 50ms);
+}
+
+.links[data-open='true'] .link {
+  font-family: var(--font-display);
+  font-variation-settings: 'SOFT' 100;
+  font-weight: 800;
+  font-size: clamp(2rem, 9vw, 3rem);
+  line-height: 1.15;
+}
+
+.link {
+  display: inline-block;
+  padding: 0.3rem 0.2rem;
+  border-radius: 999px;
+  font-weight: 600;
+  text-decoration: none;
+  background-image: linear-gradient(var(--strawberry), var(--strawberry));
+  background-size: 0% 3px;
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  transition: background-size 0.3s var(--ease-out);
+}
+
+.link:hover,
+.link[aria-current] {
+  background-size: 100% 3px;
+}
+
+.mobileCta {
+  margin-top: 1.5rem;
+}
+
+.toggle {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  width: 3rem;
+  height: 3rem;
+  border: var(--border);
+  border-radius: 50%;
+  background: var(--mango);
+  box-shadow: 3px 3px 0 var(--ink);
+}
+
+.desktopCta {
+  display: none;
+}
+
+@keyframes sheet {
+  from {
+    clip-path: circle(0% at calc(100% - 3rem) 2.5rem);
+  }
+  to {
+    clip-path: circle(150% at calc(100% - 3rem) 2.5rem);
+  }
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+}
+
+@media (min-width: 60rem) {
+  .links,
+  .links[data-open='true'] {
+    position: static;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1.4rem;
+    padding: 0;
+    background: none;
+    animation: none;
+  }
+
+  .links[data-open='true'] li {
+    animation: none;
+  }
+
+  .links[data-open='true'] .link {
+    font-family: inherit;
+    font-weight: 600;
+    font-size: inherit;
+    line-height: inherit;
+  }
+
+  .mobileCta,
+  .toggle {
+    display: none;
+  }
+
+  .desktopCta {
+    display: inline-flex;
+    margin-left: 0.5rem;
+  }
+}

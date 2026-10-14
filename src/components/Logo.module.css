@@ -1,0 +1,37 @@
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--ink);
+}
+
+.light {
+  color: var(--cream);
+}
+
+.mark {
+  width: 2.1rem;
+  height: auto;
+  transition: transform 0.4s var(--ease-bounce);
+}
+
+.words {
+  display: grid;
+  line-height: 0.9;
+}
+
+.small {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.big {
+  font-family: var(--font-display);
+  font-variation-settings: 'SOFT' 100;
+  font-style: italic;
+  font-weight: 900;
+  font-size: 1.65rem;
+  letter-spacing: -0.03em;
+}

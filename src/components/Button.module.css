@@ -1,0 +1,77 @@
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  min-height: 3rem;
+  padding: 0.7rem 1.35rem;
+  border: var(--border);
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: var(--fs-md);
+  line-height: 1.1;
+  text-decoration: none;
+  box-shadow: var(--shadow-pop);
+  transition:
+    transform 0.25s var(--ease-bounce),
+    box-shadow 0.25s var(--ease-out),
+    background-color 0.2s;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.button:hover {
+  transform: translate(-2px, -2px) rotate(-1.5deg);
+  box-shadow: 6px 7px 0 var(--ink);
+}
+
+.button:active {
+  transform: translate(3px, 4px);
+  box-shadow: 0 0 0 var(--ink);
+}
+
+.button:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+  transform: none;
+  box-shadow: none;
+}
+
+.iconEnd {
+  transition: transform 0.25s var(--ease-bounce);
+}
+
+.button:hover .iconEnd {
+  transform: translateX(3px);
+}
+
+.primary {
+  background: var(--ink);
+  color: var(--cream);
+  box-shadow: 4px 5px 0 var(--strawberry);
+}
+
+.primary:hover {
+  box-shadow: 6px 7px 0 var(--strawberry);
+}
+
+.secondary {
+  background: var(--cream);
+  color: var(--ink);
+}
+
+.whatsapp {
+  background: var(--whatsapp);
+  color: var(--ink);
+}
+
+.sm {
+  min-height: 2.5rem;
+  padding: 0.45rem 1rem;
+  font-size: var(--fs-sm);
+}
+
+.lg {
+  min-height: 3.5rem;
+  padding: 0.85rem 1.6rem;
+  font-size: var(--fs-lg);
+}

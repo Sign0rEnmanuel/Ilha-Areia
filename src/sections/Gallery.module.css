@@ -1,0 +1,124 @@
+.section {
+  padding: var(--section-y) 0;
+  background: var(--cream);
+}
+
+.mosaic {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-auto-rows: 11rem;
+  grid-auto-flow: dense;
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.tile {
+  grid-column: span 1;
+}
+
+.tall {
+  grid-row: span 2;
+}
+
+.wide {
+  grid-column: span 2;
+}
+
+.figure {
+  position: relative;
+  display: grid;
+  grid-template-rows: minmax(0, 1fr);
+  height: 100%;
+  overflow: hidden;
+  border: var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-pop);
+  transition: transform 0.4s var(--ease-bounce);
+}
+
+.tile:nth-child(6n + 1) .figure {
+  background:
+    radial-gradient(circle, rgb(255 255 255 / 0.6) 0 3px, transparent 3.5px) 0 0 / 22px 22px,
+    var(--pink);
+}
+
+.tile:nth-child(6n + 2) .figure {
+  background: repeating-linear-gradient(90deg, var(--mango-light) 0 24px, var(--white) 24px 48px);
+}
+
+.tile:nth-child(6n + 3) .figure {
+  background: var(--lilac);
+}
+
+.tile:nth-child(6n + 4) .figure {
+  background: conic-gradient(
+      var(--pistachio-light) 25%,
+      var(--white) 0 50%,
+      var(--pistachio-light) 0 75%,
+      var(--white) 0
+    )
+    0 0 / 36px 36px;
+}
+
+.tile:nth-child(6n + 5) .figure {
+  background: repeating-radial-gradient(
+    circle at 0 100%,
+    var(--mango) 0 18px,
+    var(--mango-light) 18px 36px
+  );
+}
+
+.tile:nth-child(6n) .figure {
+  background:
+    radial-gradient(circle, rgb(42 23 18 / 0.12) 0 3px, transparent 3.5px) 0 0 / 20px 20px,
+    var(--pistachio);
+}
+
+.figure:hover {
+  transform: rotate(-1.5deg) scale(1.02);
+}
+
+/* A arte ocupa a área acima da legenda; o SVG se ajusta mantendo a proporção. */
+.art {
+  position: absolute;
+  inset: 0.75rem 1rem 4.5rem;
+}
+
+.art svg {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  transition: transform 0.5s var(--ease-bounce);
+}
+
+.figure:hover .art svg {
+  transform: translateY(-6px) rotate(4deg);
+}
+
+.caption {
+  position: absolute;
+  left: 0.6rem;
+  right: 0.6rem;
+  bottom: 0.6rem;
+  padding: 0.45rem 0.75rem;
+  border: 2px solid var(--ink);
+  border-radius: 0.8rem;
+  background: var(--cream);
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+@media (min-width: 48rem) {
+  .mosaic {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-auto-rows: 13rem;
+    gap: 1.25rem;
+  }
+
+  .caption {
+    font-size: var(--fs-sm);
+  }
+}

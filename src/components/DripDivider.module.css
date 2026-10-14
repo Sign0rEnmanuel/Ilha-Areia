@@ -1,0 +1,13 @@
+.divider {
+  position: absolute;
+  top: -1px;
+  left: 0;
+  width: 100%;
+  height: clamp(40px, 6vw, 90px);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.flip {
+  transform: scaleX(-1);
+}

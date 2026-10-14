@@ -1,0 +1,72 @@
+.option {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  min-height: 3rem;
+  padding: 0.6rem 0.9rem;
+  border: var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--white);
+  cursor: pointer;
+  transition:
+    transform 0.2s var(--ease-bounce),
+    background-color 0.2s,
+    box-shadow 0.2s;
+}
+
+.option:hover {
+  transform: translateY(-2px);
+}
+
+.option:has(.input:checked) {
+  background: var(--ink);
+  color: var(--cream);
+  box-shadow: 3px 3px 0 var(--strawberry);
+}
+
+.option:has(.input:focus-visible) {
+  outline: 3px solid var(--focus);
+  outline-offset: 3px;
+}
+
+.disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.disabled:hover {
+  transform: none;
+}
+
+/* O input continua acessível, só fica invisível sobre o cartão. */
+.input {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+  opacity: 0;
+  cursor: inherit;
+}
+
+.swatch {
+  flex-shrink: 0;
+  width: 1.4rem;
+  height: 1.4rem;
+  border: 2px solid currentColor;
+  border-radius: 50%;
+}
+
+.text {
+  display: grid;
+  line-height: 1.25;
+}
+
+.label {
+  font-weight: 700;
+  font-size: var(--fs-sm);
+}
+
+.detail {
+  font-size: var(--fs-xs);
+  opacity: 0.85;
+}

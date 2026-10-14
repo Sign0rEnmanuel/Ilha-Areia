@@ -1,0 +1,60 @@
+/* Recorta só na horizontal: a faixa girada pode "vazar" para cima e para baixo. */
+.clip {
+  position: relative;
+  z-index: 2;
+  overflow-x: clip;
+}
+
+.marquee {
+  position: relative;
+  z-index: 2;
+  overflow: hidden;
+  background: var(--ink);
+  color: var(--cream);
+  border-block: var(--border);
+  transform: rotate(-1.5deg);
+  margin-block: -0.75rem;
+  width: 104%;
+  margin-left: -2%;
+}
+
+.track {
+  display: flex;
+  width: max-content;
+  animation: scroll 38s linear infinite;
+}
+
+.marquee:hover .track {
+  animation-play-state: paused;
+}
+
+.row {
+  display: flex;
+  margin: 0;
+  padding: 0.85rem 0;
+  list-style: none;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding-right: 1.5rem;
+  font-family: var(--font-display);
+  font-variation-settings: 'SOFT' 100;
+  font-style: italic;
+  font-weight: 700;
+  font-size: var(--fs-lg);
+  white-space: nowrap;
+}
+
+.star {
+  color: var(--mango);
+  font-style: normal;
+}
+
+@keyframes scroll {
+  to {
+    transform: translateX(-50%);
+  }
+}

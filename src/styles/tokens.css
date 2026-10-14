@@ -1,0 +1,55 @@
+/*
+ * Design tokens · Ilha & Areia
+ * Paleta "sorveteria de bairro anos 70": creme de leite, cacau, morango, pistache e manga.
+ */
+:root {
+  /* Cores base */
+  --cream: #fff6e9;
+  --cream-deep: #f7e6cc;
+  --ink: #2a1712;
+  --ink-soft: #5a3d33;
+  --cocoa: #3b2117;
+  --pink: #f6a6b9;
+  --pink-light: #fcd9e1;
+  --strawberry: #c22656;
+  --pistachio: #b9d58a;
+  --pistachio-light: #e2efc9;
+  --mango: #ffb547;
+  --mango-light: #ffe2ad;
+  --lilac: #cdb4e8;
+  --whatsapp: #25d366;
+  --white: #ffffff;
+
+  /* Cores semânticas */
+  --bg: var(--cream);
+  --text: var(--ink);
+  --text-muted: var(--ink-soft);
+  --focus: #1a5cff;
+
+  /* Tipografia */
+  --font-display: 'Fraunces Variable', 'Iowan Old Style', Georgia, serif;
+  --font-body: 'DM Sans Variable', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --fs-xs: 0.8125rem;
+  --fs-sm: 0.9375rem;
+  --fs-md: 1.0625rem;
+  --fs-lg: clamp(1.15rem, 1rem + 0.5vw, 1.35rem);
+  --fs-xl: clamp(1.5rem, 1.2rem + 1.2vw, 2.1rem);
+  --fs-2xl: clamp(2.2rem, 1.5rem + 3vw, 4rem);
+  --fs-hero: clamp(3rem, 1.6rem + 6vw, 6.25rem);
+
+  /* Espaço e forma */
+  --gutter: clamp(1rem, 0.5rem + 2.5vw, 2.5rem);
+  --section-y: clamp(4.5rem, 3rem + 6vw, 8.5rem);
+  --max-width: 76rem;
+  --radius-sm: 0.75rem;
+  --radius: 1.5rem;
+  --radius-lg: 2.25rem;
+  --border: 2.5px solid var(--ink);
+  --shadow-pop: 4px 5px 0 var(--ink);
+  --shadow-pop-lg: 7px 8px 0 var(--ink);
+  --nav-height: 4.5rem;
+
+  /* Movimento */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+}
