@@ -13,9 +13,9 @@ export const brand = {
 
 export const contact = {
   // Número fictício, no formato internacional sem símbolos (usado pelo wa.me)
-  whatsapp: '5548991870987',
-  whatsappDisplay: '(48) 99187-0987',
-  phone: '+55 48 3232-1987',
+  whatsapp: '5548999990000',
+  whatsappDisplay: '(48) 99999-0000',
+  phone: '+55 48 99999-0000',
   email: 'oi@ilhaeareia.com.br',
   address: {
     street: 'Avenida das Rendeiras, 1450',
